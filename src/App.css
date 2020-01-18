@@ -1,38 +1,61 @@
 .App {
-  text-align: center;
+  font-family: monospace;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App .terminal {
+    background: black;
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.1), black 120%
+    );
+    color: white;
+    filter: sepia(1) hue-rotate(60deg) saturate(4);
+    font-size: 12px;
+    line-height: 12px;
+    margin: 0ex;
+    width: 80ex;
+    height: 43em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App .terminal {
+    color: white;
+    line-height: 12px;
+    font-size: 12px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App .terminal::selection {
+    background: white;
+    color: black;
+    text-shadow: none;
 }
 
-.App-link {
-  color: #61dafb;
+.App .terminal img {
+    filter:  grayscale(1);
+    position: absolute;
+    right: 4ex;
+    top: 17em;
+    width: 30ex;
+    border: 1px solid white;
+    z-index: -1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App .terminal::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0, 0.25),
+      rgba(0,0,0, 0.25) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+}
+
+pre {
+  margin: 0;
 }
