@@ -200,6 +200,7 @@ class Terminal extends React.Component {
         });
 
         this.intervalID = window.setInterval(() => {
+            console.log("time update");
             var t = new Date()
             this.setState({
                 'time': t.toLocaleString(),

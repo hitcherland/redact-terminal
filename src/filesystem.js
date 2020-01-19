@@ -94,6 +94,8 @@ class FileSystem extends Terminal {
     }
 
     componentDidMount() {
+        super.componentDidMount();
+
         this.transition(this.props.data.settings.logo, 1500);
         window.setTimeout(() => {
             this.renderTerminal();
@@ -126,6 +128,7 @@ class FileSystem extends Terminal {
     }
 
     componentWillUnmount() {
+        super.componentWillUnmount();
         window.removeEventListener('keydown', this.listener);
     }
 
@@ -158,7 +161,6 @@ class FileSystem extends Terminal {
 
         var output = this.default_layout;
         for(let line of text.split('\n')) {
-            console.log(line);
             output = output.replace(new RegExp(`X{${line.length}}`), line);
         }
 
