@@ -154,7 +154,7 @@ class FileSystem extends Terminal {
             controls += ', BkSp - Back'
         }
 
-        var text = this.fixSize(text, this.termWidth - 2, this.termHeight - 6);
+        text = this.fixSize(text, this.termWidth - 2, this.termHeight - 6);
 
         var output = this.default_layout;
         for(let line of text.split('\n')) {
