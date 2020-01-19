@@ -1,17 +1,18 @@
 import React from 'react';
-import Terminal from './terminal';
+import FileSystem from './filesystem';
 import './App.css';
 import harddrive_noise from './audio/harddrive.mp3';
-import sample_file from './sample.txt';
+//import sample_file from './sample.txt';
+import sessions from './sessions.json';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.audio = React.createRef();
         this.state = {
-            active: false
+            active: false,
+            stack: [sessions],
         }
-
     }
 
     componentDidMount() {
@@ -28,7 +29,7 @@ class App extends React.Component {
             return (
             <div className="App">
               <audio ref={this.audio} src={harddrive_noise} preload="auto" autoPlay loop></audio>
-              <Terminal termWidth={80} termHeight={43} content={sample_file} />
+              <FileSystem data={sessions}/>
             </div>
             );
         } else {
@@ -39,5 +40,6 @@ class App extends React.Component {
         }
     }
 }
+//<Terminal termWidth={80} termHeight={43} content={sample_file} />
 
 export default App;
