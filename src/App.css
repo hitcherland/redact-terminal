@@ -15,12 +15,8 @@
     margin: 0ex;
     width: 80ex;
     height: 43em;
-}
-
-.App .terminal {
-    color: white;
-    line-height: 12px;
-    font-size: 12px;
+    overflow: hidden;
+    margin: auto auto 0em auto;
 }
 
 .App .terminal::selection {

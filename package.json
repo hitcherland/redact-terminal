@@ -32,6 +32,8 @@
     ]
   },
   "devDependencies": {
+    "audio-loader": "^1.0.3",
+    "file-loader": "^5.0.2",
     "fs": "0.0.1-security",
     "raw-loader": "^4.0.0"
   }
