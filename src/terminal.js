@@ -129,24 +129,12 @@ class Terminal extends React.Component {
         var time_regex = new RegExp(`.{${offset}}{local_time}`)
         text = text.replace(time_regex, time) 
 
-        var rect;
-        if(this.output.current !== null) {
-            rect = this.output.current.getBoundingClientRect();
-        } else {
-            rect = {'width': `${this.termWidth}ex`, height: `${this.termHeight}em`}
-        }
-
-        rect = {'width': `${this.termWidth}ex`, height: `${this.termHeight}ex`}
-
         var style = {
             opacity: Math.random() * 0.1 + 0.8,
-            //width: rect.width + 'px',
-            //height: rect.height + 'px',
             position: 'relative',
         }
     
         text = this.fixSize(text, this.termWidth, this.termHeight);
-        var lines = text.split('\n')
         var rowStyle = {
             position: "absolute",
             left: "0px",
@@ -171,12 +159,6 @@ class Terminal extends React.Component {
         return <div className='terminal' style={style}>
             {output}
         </div>
-
-        return <pre className='terminal' style={style}>
-            <output ref={this.output}>
-                {text}
-            </output>
-        </pre>;
     }
 }
 

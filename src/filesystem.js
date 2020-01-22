@@ -17,6 +17,8 @@ class FileSystem extends Terminal {
     pushStack(index) {
         var stack = this.state.stack;
         var path = this.state.path;
+        if(stack[0].children === undefined)
+            return
 
         var new_stack_item = stack[0].children[index];
         var new_selected = undefined;
@@ -106,7 +108,7 @@ class FileSystem extends Terminal {
                 case 'Enter':
                     this.pushStack(this.state.selected);
                     break
-                case 'Backspace':
+                case 'Escape':
                     this.popStack();
                     break; 
                 case 'ArrowUp':
@@ -135,9 +137,9 @@ class FileSystem extends Terminal {
     renderTerminal() {
         var item = this.state.stack[0];
         var text = item.content;
-        var controls = ''
+        var controls = []
         if(text === undefined) {
-            controls = '↑/↓/Enter - Up/Down/Select'
+            controls.push('↑/↓/Enter - Up/Down/Select')
             text = `\n  Directory Listing: ${this.state.path.join('/')}\n\n`;
             for(let i=0; i<item.children.length; i++) {
                 let child = item.children[i];
@@ -151,10 +153,10 @@ class FileSystem extends Terminal {
 
         if(this.state.stack.length > 1) {
             if(this.state.stack[1].children.length > 1) {
-                controls += ', ←/→ - Prev/Next'
+                controls.push('←/→ - Prev/Next')
             }
             
-            controls += ', BkSp - Back'
+            controls.push('Esc - Back')
         }
 
         text = this.fixSize(text, this.termWidth - 2, this.termHeight - 6);
@@ -164,6 +166,7 @@ class FileSystem extends Terminal {
             output = output.replace(new RegExp(`X{${line.length}}`), line);
         }
 
+        controls = controls.join(', ')
         var offset = controls.length - 10;
         var controls_regex = new RegExp(`{controls}.{${offset}}`)
         output = output.replace(controls_regex, controls) 
