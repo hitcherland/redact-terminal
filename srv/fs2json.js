@@ -24,4 +24,5 @@ function parseDirectory(name, directory) {
 var dir = fs.opendirSync('sessions')
 var obj = parseDirectory('/root', dir)
 
-fs.writeFileSync("src/sessions.json", JSON.stringify(obj));
+var string = JSON.stringify(obj)
+fs.writeFileSync("src/sessions.json", string, {encoding: 'utf8'});

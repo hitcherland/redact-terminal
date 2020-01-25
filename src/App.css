@@ -2,22 +2,6 @@
   font-family: monospace;
 }
 
-.App .terminal {
-    background: black;
-    background-image: radial-gradient(
-      rgba(255, 255, 255, 0.1), black 120%
-    );
-    color: white;
-    filter: sepia(1) hue-rotate(60deg) saturate(4);
-    font-size: 12px;
-    line-height: 12px;
-    margin: 0ex;
-    width: 80ex;
-    height: 69ex;
-    overflow: hidden;
-    margin: auto auto 0em auto;
-}
-
 .App .terminal::selection {
     background: white;
     color: black;
@@ -34,7 +18,28 @@
     z-index: -1;
 }
 
-.App .terminal::after {
+.App .terminal {
+}
+
+.App .overlay {
+    background: black;
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.1), black 120%
+    );
+    color: white;
+    filter: sepia(1) hue-rotate(60deg) saturate(4);
+    font-size: 12px;
+    line-height: 12px;
+    margin: 0ex;
+    width: 80ex;
+    height: 69ex;
+    overflow: hidden;
+    margin: auto auto 0em auto;
+}
+
+
+
+.App .overlay::after {
     content: "";
     position: absolute;
     top: 0;

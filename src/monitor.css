@@ -1,0 +1,38 @@
+.monitor {
+    position: relative;
+}
+
+.monitor .display, .monitor .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.monitor .display {
+    color: white;
+    overflow: hidden;
+}
+
+.monitor .overlay {
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0, 0.25),
+      rgba(0,0,0, 0.25) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+}
+
+.monitor.bg-black {
+    background: black;
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.1), black 120%
+    );
+}
+
+.monitor.fg-green {
+    filter: sepia(1) hue-rotate(60deg) saturate(4);
+}
